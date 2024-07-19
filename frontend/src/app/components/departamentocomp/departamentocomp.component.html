@@ -1,0 +1,69 @@
+<div class="section container">
+    <div class="row">
+      <div class="col s5">
+        <div class="card">
+          <div class="card-content"> <!-- Formulario construido para ejecutarse con un evento, un metodo llamado addFuncionario y recibe funcionarioForm por parametros  -->
+            <p class="center white-text text-darken-5 card-panel teal lighten-1">CREAR DEPARTAMENTOS UNIDAD 2504</p>
+            <br>
+            <form #depaForm="ngForm" (ngSubmit)="AddDepartamento(depaForm)"> <!--El metodo se le da todo el contenido del form; cuando se da el evento submit envio todo el formulario a la funcion addpresupuesto   -->
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]=" depaServ.selectedDepart._id">
+               <div class="row">
+                <!--  <div class="input-field col-s12"> 
+                    <input type="number" id= codigoAsig name="Codigo_Asignacion" #name="ngModel" [(ngModel)]="PartidaServ.selectedPartidas.codigo_Asignacion" value="0" minlength="9" maxlength="9" class="validate" required>
+                    <label for="codigo_Asignacion">Código Asignacion</label>
+                  </div> -->
+                  <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                    <input type="number" id= codigo_Departamento name="codigo_Departamento" #name="ngModel" [(ngModel)]="depaServ.selectedDepart.codigo_Departamento" class="validate" required>
+                    <label for="codigo_Departamento">Código Departamento</label>
+                  </div>
+                  <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                    <input type="text" id= nombre_Departamento name="nombre_Departamento" #name="ngModel" [(ngModel)]="depaServ.selectedDepart.nombre_Departamento" class="validate" required>
+                    <label for="nombre_Departamento">Nombre Departamento</label>
+                  </div>
+                <div class="input-field col-s12">
+                  <input type="number" id=monto_Ejecutado name="monto_Ejecutado" #name="ngModel" [(ngModel)]="depaServ.selectedDepart.monto_Ejecutado" class="validate" required>
+                  <label for="monto_Ejecutado">Monto Ejecutado</label>
+                </div>                
+                               
+                <div class="card-action">
+                  <div class="input-field col-s12">
+                    <button class="btn right" (click)="AddDepartamento(depaForm)">Guardar</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <button class="btn" style="margin-left: 10px;" (click)="limpiarForm(depaForm)">Limpiar</button>
+      </div>
+      <div class="col s7">
+        <p class="center white-text text-darken-5 card-panel blue lighten-30">DEPARTAMENTOS UNIDAD 2504</p>
+        <table class="striped highlight black-text" class="responsive-table">
+            <thead>
+             <!-- <th>Código Presupuesto</th> -->
+            <th>Código Departamento</th>
+            <th>Nombre Departamento</th>
+            <th>Monto Ejecutado</th>
+                       
+          </thead>
+          <tbody>
+            <tr *ngFor= "let departamentocomp of depaServ.DepartArray">  <!-- Bucle for-- muestro los Presupuestos de todos esos funcionarios; Por cada recorrido  voy a obtener un solo presupuesto -->
+             <!-- <td>{{ partida2504.codigo_Asignacion }}</td> -->
+              <td>{{ departamentocomp.codigo_Departamento }}</td>
+              <td>{{ departamentocomp.nombre_Departamento }}</td>
+              <td>{{ departamentocomp.monto_Ejecutado | currency: '¢' }}</td>
+              <td>
+                <a (click)="editDepartamento(departamentocomp)" class="btn btn-secondary btn-small">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteDepartamento(departamentocomp._id, depaForm)" class="btn btn-danger btn-small">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+

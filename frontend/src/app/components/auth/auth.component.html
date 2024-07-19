@@ -1,0 +1,44 @@
+<div class="section container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <!-- Formulario construido para ejecutarse con un evento, un metodo llamado addFuncionario y recibe funcionarioForm por parametros  -->
+          <p class="center white-text text-darken-5 card-panel teal lighten-1">AUTENTICACION</p>
+          <br>
+          <form #authForm="ngForm" (ngSubmit)="AddAuth(authForm)">
+            <!--El metodo se le da todo el contenido del form; cuando se da el evento submit envio todo el formulario a la funcion addpresupuesto   -->
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]=" AuthSer.selectedAuth._id">
+            <div class="row">
+              <!--  <div class="input-field col-s12"> 
+                    <input type="number" id= codigoAsig name="Codigo_Asignacion" #name="ngModel" [(ngModel)]="PartidaServ.selectedPartidas.codigo_Asignacion" value="0" minlength="9" maxlength="9" class="validate" required>
+                    <label for="codigo_Asignacion">Código Asignacion</label>
+                  </div> -->
+
+              <div class="input-field col-s12">
+                <!-- [(ngModel)] doble enlace de datos-->
+                <input type="text" id=email name="email" #name="ngModel" [(ngModel)]="AuthSer.selectedAuth.email"
+                  class="validate" required>
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" id=password name="password" #name="ngModel"
+                  [(ngModel)]="AuthSer.selectedAuth.password" class="validate" required>
+                <label for="password">Password</label>
+              </div>
+
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn right" (click)="AddAuth(authForm)">Guardar</button>
+                </div>
+              </div>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

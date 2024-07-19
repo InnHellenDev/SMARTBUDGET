@@ -1,0 +1,75 @@
+<div class="section container">
+    <div class="row">
+      <!-- <div class="col s9"> -->
+        <div class="card"  style="width:75rem; height: 35rem;">
+          <div class="card-content"> <!-- Formulario construido para ejecutarse con un evento, un metodo llamado addFuncionario y recibe funcionarioForm por parametros  -->
+            <p class="center white-text text-darken-5 card-panel teal lighten-1">BIENVENIDO A SMARTBUDGET</p>
+            <br>
+            <form #funcionarioForm="ngForm" (ngSubmit)="AddFuncionario(funcionarioForm)"><!--El metodo se le da todo el contenido del form   -->
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="funcionarioServ.selectedFuncionario._id">
+               <div class="row">
+                <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                    <input type="number" id= cedula name="cedula" #name="ngModel" [(ngModel)]="funcionarioServ.selectedFuncionario.cedula" value="0" minlength="9" maxlength="9" class="validate" required>
+                    <label for="cedula">Ingresar Cédula</label>
+                  </div>
+                <div class="input-field col-s12">
+                  <input type="text" id=nombre name="nombre" #name="ngModel" [(ngModel)]="funcionarioServ.selectedFuncionario.nombre" class="validate" required>
+                  <label for="nombre">Ingresar Nombre</label>
+                </div>
+                <!-- <div class="input-field col-s12">
+                  <input type="text" id=puesto name="puesto" #name="ngModel" [(ngModel)]="funcionarioServ.selectedFuncionario.puesto" class="validate" required>
+                  <label for="puesto">Domicilio</label>
+                </div> -->
+                <div class="input-field col-s12">
+                  <input type="text" id= "departamento" name="departamento" #name="ngModel" [(ngModel)]="funcionarioServ.selectedFuncionario.departamento" class="validate" required>
+                  <label for="departamento">Ingresar Correo Electrónico</label>
+                </div>
+                <div class="input-field col-s12">
+                  <input type="text" id= "departamento" name="departamento" #name="ngModel" [(ngModel)]="funcionarioServ.selectedFuncionario.departamento" class="validate" required>
+                  <label for="departamento">Crear Contraseña</label>
+                </div>
+                <div class="input-field col-s12">
+                  <input type="text" id= "departamento" name="departamento" #name="ngModel" [(ngModel)]="funcionarioServ.selectedFuncionario.departamento" class="validate" required>
+                  <label for="departamento">Confirmar Constraseña</label>
+                </div>
+                
+                <!-- <div class="card-action"> -->
+                <div class="input-field col-s12"> 
+                    <!-- <button class="btn right" style="margin-left: 10px;" (click)="limpiarForm(funcionarioForm)">LIMPIAR</button> -->
+                    <button (click)="cambiarEstadoSesion()" style="width:72rem;" class="btn center">AGREGAR</button>
+                  </div> 
+                <!-- </div> -->
+              </div>
+            </form>
+          </div>
+        </div>
+      <!-- </div> -->
+      <!-- <div class="col s7">
+        <p class="center white-text text-darken-5 card-panel blue lighten-30">USUARIO</p>
+        <table class="striped highlight black-text" class="responsive-table">
+            <thead>
+            <th>Cédula</th>
+            <th>Nombre Funcionario</th>
+            <th>Número de cuenta</th>
+            <th>Fecha Ingreso</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let funcionario of funcionarioServ.funcionarioArray">  <!-- Bucle for-- muestro los funcionarios de todos esos funcionarios-->
+              <!-- <td>{{ funcionario.cedula }}</td>
+              <td>{{ funcionario.nombre }}</td>
+              <td>{{ funcionario.puesto }}</td>
+              <td>{{ funcionario.departamento }}</td>
+              <td>
+                <a (click)="editFuncionarios(funcionario)">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteFuncionarios(funcionario._id, funcionarioForm)">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>  -->
+    </div>
+  </div>

@@ -1,0 +1,50 @@
+<div class="section container" fxLayoutAling="center center">
+    <br><br><br><br><br>
+    <div class="row" class="center">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content"> 
+                <!-- Formulario construido para ejecutarse con un evento, un metodo llamado addFuncionario y recibe funcionarioForm por parametros  -->
+                <p class="center white-text text-darken-5 card-panel teal lighten-1 big-text">SmartBudget</p>
+                <br>
+                <br>
+                <div fxLayout="column" fxFlex="100">
+                    <form #authForm="ngForm" (ngSubmit)="AddAuth(authForm)">
+                        <!--El metodo se le da todo el contenido del form; cuando se da el evento submit envio todo el formulario a la funcion addpresupuesto   -->
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]=" AuthSer.selectedAuth._id">
+                        <div class="row">
+
+                            <div class="input-field col-s12">
+                                <!-- [(ngModel)] doble enlace de datos-->
+                                <input type="text" id=email name="email" #name="ngModel"
+                                    [(ngModel)]="AuthSer.selectedAuth.email" class="validate" required>
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field col-s12">
+                                <input type="text" id=password name="password" #name="ngModel"
+                                    [(ngModel)]="AuthSer.selectedAuth.password" class="validate" required>
+                                <label for="password">Password</label>
+
+                                <div class="input-field col-s12">
+                                    <button class="btn center" (click)="RedireccionarTemporal()">Iniciar sesión</button>
+                                    <!-- <button class="btn center" (click)="AddAuth(authForm)">Iniciar sesión</button> -->
+                                    <br>
+                                    <br>
+                                    <a href="/funcionarios" style="font-size: 12px; color: rgb(20, 23, 26); font-weight: bold;"  
+                                    class="forgot-password-link">Olvidé mi contraseña</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+               </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- <router-outlet></router-outlet> -->

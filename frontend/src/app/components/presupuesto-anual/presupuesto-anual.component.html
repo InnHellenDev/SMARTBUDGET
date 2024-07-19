@@ -1,0 +1,79 @@
+<div class="section container">
+    <div class="row">
+      <div class="col s5">
+        <div class="card">
+          <div class="card-content"> <!-- Formulario construido para ejecutarse con un evento, un metodo llamado addFuncionario y recibe funcionarioForm por parametros  -->
+            <p class="center white-text text-darken-5 card-panel teal lighten-1">DISTRIBUCIÓN DE PRESUPUESTO</p>
+            <br>
+            <form #presupuestoForm="ngForm" (ngSubmit)="AddPresupuesto(presupuestoForm)"><!--El metodo se le da todo el contenido del form; cuando se da el evento submit envio todo el formulario a la funcion addpresupuesto   -->
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]=" presupuestoServ.selectedPresupuestoAnual._id">
+               <div class="row">
+                <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                    <input type="number" id= codigo_Asignacion name="codigo_Asignacion" #name="ngModel" [(ngModel)]="presupuestoServ.selectedPresupuestoAnual.codigo_Asignacion" class="validate" required>
+                    <label for="codigo_Asignacion">codigo_Asignacion</label>
+                  </div>
+                <div class="input-field col-s12">
+                  <input type="number" id=presupuesto_Anual name="presupuesto_Anual" #name="ngModel" [(ngModel)]="presupuestoServ.selectedPresupuestoAnual.presupuesto_Anual" class="validate" required>
+                  <label for="presupuesto_Anual">Ingresar Presupuesto Anual</label>
+                </div>
+                <div class="input-field col-s12">
+                  <input type="number" id=presupuesto_Disponible name="presupuesto_Disponible" #name="ngModel" [(ngModel)]="presupuestoServ.selectedPresupuestoAnual.presupuesto_Disponible" class="validate" required>
+                  <label for="presupuesto_Disponible">Ingresar Presupuesto Disponible</label>
+                </div>
+                <div class="input-field col-s12">
+                    <input type="number" id=presupuesto_ano name="presupuesto_ano" #name="ngModel" [(ngModel)]="presupuestoServ.selectedPresupuestoAnual.presupuesto_ano" class="validate" required>
+                    <label for="presupuesto_ano">Ingresar Año Presupuestario</label>
+                  </div>
+                   <!-- 
+                  <div class="input-field col-s12">
+                    <input type="date" id=periodo_Hasta name="periodo_Hasta" #name="ngModel" [(ngModel)]="presupuestoServ.selectedPresupuestoAnual.periodo_Hasta" class="validate" required>
+                    <label for="periodo_Hasta">Ingresar Fecha Hasta</label>
+                  </div>  
+                  -->
+               
+                <div class="card-action">
+                  <div class="input-field col-s12">
+                    <button class="btn right">Guardar</button>
+                  </div> 
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <button class="btn" style="margin-left: 10px;" (click)="limpiarForm(presupuestoForm)">Limpiar</button>
+      </div>
+      <div class="col s7">
+        <p class="center white-text text-darken-5 card-panel blue lighten-30">PRESUPUESTO ANUAL</p>
+        <table class="striped highlight black-text" class="responsive-table">
+            <thead>
+            <th>Código Asignación Presupuestaria</th>
+            <th>Presupuesto Anual</th>
+            <th>Presupuesto Disponible</th>
+            <th>Año Presupuestario</th>
+            <!--
+            <th>Periodo Hasta</th>
+             -->
+          </thead>
+          <tbody>
+            <tr *ngFor= "let presupuestoAnual of presupuestoServ.PresupuestoArray">  <!-- Bucle for-- muestro los Presupuestos de todos esos funcionarios; Por cada recorrido  voy a obtener un solo presupuesto -->
+              <td>{{ presupuestoAnual.codigo_Asignacion }}</td>
+              <td>{{ presupuestoAnual.presupuesto_Anual | currency: '¢'}}</td>
+              <td>{{ presupuestoAnual.presupuesto_Disponible | currency: '¢' }}</td>
+              <td>{{ presupuestoAnual.presupuesto_ano }}</td>
+              <!--
+              <td>{{ presupuestoAnual.periodo_Hasta | date:'dd/MM/yyyy' }}</td> -->
+              <td>
+                <a (click)="editPresupuesto(presupuestoAnual)" class="btn btn-secondary btn-small">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deletePresupuesto(presupuestoAnual._id, PresupuestoForm)" class="btn btn-danger btn-small">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+

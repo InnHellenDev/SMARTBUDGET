@@ -1,0 +1,84 @@
+<div class="section container">
+    <div class="row">
+      <div class="col s5">
+        <div class="card">
+          <div class="card-content"> <!-- Formulario construido para ejecutarse con un evento, un metodo llamado addFuncionario y recibe funcionarioForm por parametros  -->
+            <p class="center white-text text-darken-5 card-panel teal lighten-1">CUENTAS</p>
+            <br>
+            <form #reservasForm="ngForm" (ngSubmit)="AddReserva(reservasForm)"> <!--El metodo se le da todo el contenido del form; cuando se da el evento submit envio todo el formulario a la funcion addpresupuesto   -->
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]=" reservaSe.selectedReserva._id">
+               <div class="row">
+                <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                  <input type="number" id= cuenta_id name="cuenta_id" #name="ngModel" [(ngModel)]="reservaSe.selectedReserva.cuenta_id" class="validate" required>
+                  <label for="cuenta_id">ID CUENTA</label>
+                </div>
+                <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                  <input type="number" id= usuario_id name="usuario_id" #name="ngModel" [(ngModel)]="reservaSe.selectedReserva.usuario_id" class="validate" required>
+                  <label for="usuario_id">ID USUARIO</label>
+                </div>
+                <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                    <input type="number" id= tipo_cuenta name="tipo_cuenta" #name="ngModel" [(ngModel)]="reservaSe.selectedReserva.tipo_cuenta" class="validate" required>
+                    <label for="tipo_cuenta">Tipo de cuenta</label>
+                  </div>
+                  
+                <div class="input-field col-s12">
+                  <input type="number" id=saldo name="saldo" #name="ngModel" [(ngModel)]="reservaSe.selectedReserva.saldo" class="validate" required>
+                  <label for="saldo">Saldo</label>
+                </div>
+                <div class="input-field col-s12">
+                  <input type="number" id=fecha_apertura name="fecha_apertura" #name="ngModel" [(ngModel)]="reservaSe.selectedReserva.fecha_apertura" class="validate" required>
+                  <label for="fecha_apertura">Fecha de apertura</label>
+                </div>
+                <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                  <input type="text" id= detalle name="detalle" #name="ngModel" [(ngModel)]="reservaSe.selectedReserva.detalle" class="validate" required>
+                  <label for="detalle">Detalle de Cuenta</label>
+                </div>
+                <button class="btn right" style="width: 27rem; height: 3rem;" (click)="AddReserva(reservasForm)">Agregar</button>
+                               
+                <!-- <div class="card-action">
+                  <div class="input-field col-s12">
+                   
+                  </div>
+                </div> -->
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- <button class="btn" style="margin-left: 10px;" (click)="limpiarForm(reservasForm)">Limpiar</button> -->
+      </div>
+      <div class="col s7">
+        <p class="center white-text text-darken-5 card-panel blue lighten-30">HISTORIAL DE CUENTAS</p>
+        <table class="striped highlight black-text" class="responsive-table">
+            <thead>
+             <!-- <th>Código Presupuesto</th> -->
+             <th>ID CUENTA</th>
+             <th>ID USUARIO</th>
+            <th>TIPO</th>
+            <th>SALDO</th>
+            <th>FECHA APERTURA</th>
+            <th>DETALLE CUENTA</th>           
+          </thead>
+          <tbody>
+            <tr *ngFor= "let reserva of reservaSe.ReservArray">  <!-- Bucle for-- muestro los Presupuestos de todos esos funcionarios; Por cada recorrido  voy a obtener un solo presupuesto -->
+             <!-- <td>{{ partida2504.codigo_Asignacion }}</td> -->
+             <td>{{ reserva.usuario_id }}</td>
+              <td>{{ reserva.tipo_cuenta }}</td>
+              <td>{{ reserva.saldo | currency: '¢' }}</td>
+              <td>{{ reserva.fecha_apertura | currency: '¢' }}</td>
+              <td>{{ reserva.detalle }}</td>
+              <td>
+                <a (click)="editReserva(reserva)" class="btn btn-secondary btn-small">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteReserva(reserva._id, reservasForm)" class="btn btn-danger btn-small">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+

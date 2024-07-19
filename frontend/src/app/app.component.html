@@ -1,0 +1,29 @@
+  <nav>
+    <div class="nav-wrapper blue lithg">
+      <div class="container">
+        <a href="#" class="brand-logo center"></a> 
+
+        <div class="left" style="position: relative; left: -200px;">
+          <label style="font-size: 15px; color: rgba(206, 225, 225, 0.812); font-weight: bold;" mat-button>SMART BUDGET</label>
+        </div>  
+             
+        <div class="right">
+           <button style="position: relative; left: 180px;" *ngIf="esIniciarSesion" mat-button routerLink="/funcionarios">REGISTRARSE</button> 
+           <!-- <button *ngIf="esIniciarSesion" mat-button routerLink="/home"></button> -->
+        </div>
+          <!-- <button mat-button routerLink="/presupuestoAnual">PRESUPUESTO</button> -->
+          <button *ngIf="!esIniciarSesion" mat-button routerLink="/registro">MOVIMIENTOS</button>
+          <button *ngIf="!esIniciarSesion" mat-button routerLink="/partidas">AHORROS</button>
+          <button *ngIf="!esIniciarSesion" mat-button routerLink="/reservas">CUENTAS</button>
+          <button *ngIf="!esIniciarSesion" mat-button routerLink="/educacionFinanciera"> EDUCACIÓN FINANCIERA</button> 
+          <button *ngIf="!esIniciarSesion" (click)="cambiarEstadoSesion()"
+           style="position: relative; left: 500px;" mat-button routerLink="/home">LOGOUT</button>
+          <!-- <button *ngIf="esIniciarSesion" mat-button routerLink="/informes"> INFORMES</button>  -->
+      </div>
+    </div>
+  </nav>
+ <!-- --> 
+<router-outlet></router-outlet>  
+ <!-- LLAMA AL COMPONENTE HOME--> 
+  <!-- <app-home></app-home>   -->
+

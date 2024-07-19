@@ -1,0 +1,12 @@
+{//Especific aue preset estoy utilizando- indico que va a traducir babel
+    "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "esmodules": true
+            }
+          }
+        ]
+      ]
+}

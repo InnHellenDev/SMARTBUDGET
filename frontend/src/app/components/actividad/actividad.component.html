@@ -1,0 +1,27 @@
+<div class="section container">
+    <div class ="row">
+      
+      <div class="col s7">
+        <p class="center white-text text-darken-5 card-panel blue lighten-30">ACTIVIDADES 2504</p>
+        <table class="striped highlight black-text" class="responsive-table">
+            <thead>
+             <!-- <th>Código Presupuesto</th> -->
+            <th>Código Actividad</th>
+            <th>Monto Ejecutado</th>
+            <th>Fecha Ejecución</th>
+                       
+          </thead>
+          <tbody>
+            <tr *ngFor= "let actividad of actividadSer.actividadArray">  <!-- Bucle for-- muestro los Presupuestos de todos esos funcionarios; Por cada recorrido  voy a obtener un solo presupuesto -->
+             <!-- <td>{{ partida2504.codigo_Asignacion }}</td> -->
+              <td>{{ actividad.codigo_Actividad }}</td>
+              <td>{{ actividad.monto_Ejecutado | currency: '¢' }}</td>
+              <td>{{ actividad.fecha_Actividad | date:'dd/MM/yyyy'}}</td>
+             
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+

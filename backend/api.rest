@@ -1,0 +1,25 @@
+###
+
+GET http://localhost:4000/presupuesto2504/presupuesto_Anual HTTP/1.1
+
+###
+
+POST http://localhost:4000/presupuesto2504/presupuesto_Anual HTTP/1.1 Content-Type: application/json
+
+{
+"cedula": "1-1278", "name": "hellen", "puesto": "Tecnico", "departamento": "GBS"
+}
+
+###
+
+GET http://localhost:3100/api/allfuncionarios/5b0624a7abcb202a3af189b6 HTTP/1.1
+
+###
+
+PUT http://localhost:3100/api/allfuncionarios/5b0624a7abcb202a3af189b6 Content-Type: application/json
+
+{
+"cedula": "1-1354", "name": "Katherin", "puesto": "Jefatura", "departamento": "RRHH"
+}
+
+### DELETE http://localhost:3100/api/allfuncionarios/5b0627e6edb8f82dcc1486ff

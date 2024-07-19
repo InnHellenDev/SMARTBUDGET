@@ -1,0 +1,69 @@
+<div class="section container">
+    <div class="row">
+      <div class="col s5">
+        <div class="card">
+          <div class="card-content"> <!-- Formulario construido para ejecutarse con un evento, un metodo llamado addFuncionario y recibe funcionarioForm por parametros  -->
+            <p class="center white-text text-darken-5 card-panel teal lighten-1">AHORROS</p>
+            <br>
+            <form #ahorrosForm="ngForm" (ngSubmit)="AddPartida(ahorrosForm)"> <!--El metodo se le da todo el contenido del form; cuando se da el evento submit envio todo el formulario a la funcion addpresupuesto   -->
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="PartidaServ.selectedPartidas._id">
+               <div class="row">
+                  <div class="input-field col-s12"> 
+                    <input type="number" id= cuenta_id name="cuenta_id" #name="ngModel" [(ngModel)]="PartidaServ.selectedPartidas.cuenta_id" minlength="9" maxlength="9" class="validate" required>
+                    <label for="cuenta_id">Id Cuenta</label>
+                  </div> 
+                  <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                    <input type="number" id= monto name="monto" #name="ngModel" [(ngModel)]="PartidaServ.selectedPartidas.monto" value="0" minlength="9" maxlength="9" class="validate" required>
+                    <label for="monto">Monto</label>
+                  </div>
+                  <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                    <input type="number" id= intereses_ganados name="intereses_ganados" #name="ngModel" [(ngModel)]="PartidaServ.selectedPartidas.intereses_ganados" value="0" minlength="9" maxlength="9" class="validate" required>
+                    <label for="intereses_ganados">Porcentaje de Interes</label>
+                  </div>
+                <div class="input-field col-s12">
+                  <input type="text" id=fecha_deposito name="fecha_deposito" #name="ngModel" [(ngModel)]="PartidaServ.selectedPartidas.fecha_deposito" class="validate" required>
+                  <label for="fecha_deposito">Fecha de depósito</label>
+                </div>
+                <!-- <div class="input-field col-s12">
+                  <input type="number" id=monto_Disponible name="monto_Disponible" #name="ngModel" [(ngModel)]="PartidaServ.selectedPartidas.monto_Disponible" class="validate" required>
+                  <label for="monto_Disponible">Monto Disponible</label>
+                </div> -->
+                           
+              </div>
+            </form>
+          </div>
+        </div>
+        <button class="btn right" style="width: 29rem; height: 3rem;" (click)="AddPartida(ahorrosForm)">AGREGAR</button>
+        <!-- <button class="btn" style="margin-left: 10px;" (click)="limpiarForm(ahorrosForm)">Limpiar</button> -->
+      </div>
+      <div class="col s7">
+        <p class="center white-text text-darken-5 card-panel blue lighten-30">HISTORIAL DE AHORROS</p>
+        <table class="striped highlight black-text" class="responsive-table">
+            <thead>
+            <th>ID Cuenta</th>
+            <th>Monto</th>
+            <th>Intereses</th>
+            <th>Fecha</th>
+            <!-- <th>Monto Disponible</th> -->
+           
+          </thead>
+          <tbody>
+            <tr *ngFor= "let partida2504 of PartidaServ.PartidasArray">  <!-- Bucle for-- muestro los Presupuestos de todos esos funcionarios; Por cada recorrido  voy a obtener un solo presupuesto -->
+              <td>{{ partida2504.cuenta_id }}</td> 
+              <td>{{ partida2504.monto | currency: '¢'}}</td>
+              <td>{{ partida2504.intereses_ganados | currency: '¢'}}</td>
+              <td>{{ partida2504.fecha_deposito | currency: '¢' }}</td>
+              <td>
+                <a (click)="editPartida(partida2504)" class="btn btn-secondary btn-small">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deletePartida(partida2504._id, ahorrosForm)" class="btn btn-danger btn-small">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

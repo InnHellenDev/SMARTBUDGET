@@ -1,0 +1,73 @@
+<div class="section container">
+    <div class="row">
+      <div class="col s5">
+        <div class="card">
+          <div class="card-content"> <!-- Formulario construido para ejecutarse con un evento, un metodo llamado addFuncionario y recibe funcionarioForm por parametros  -->
+            <p class="center white-text text-darken-5 card-panel teal lighten-1">PROCESAR SOLICITUD PRESUPUESTARIA</p>
+            <br>
+            <form #solicitudForm="ngForm" (ngSubmit)="AddSolicitud(solicitudForm)"> <!--El metodo se le da todo el contenido del form; cuando se da el evento submit envio todo el formulario a la funcion addpresupuesto   -->
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]=" solicitudServ.selectedSolicitud._id">
+               <div class="row">
+                <div class="input-field col-s12">
+                    <input type="number" id=numero_Solicitud name="numero_Solicitud" #name="ngModel" [(ngModel)]="solicitudServ.selectedSolicitud.numero_Solicitud" class="validate" required>
+                    <label for="numero_Solicitud">Número Solicitud</label>
+                  </div>
+                <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                    <input type="date" id= fecha_Solicitud name="fecha_Solicitud" #name="ngModel" [(ngModel)]="solicitudServ.selectedSolicitud.fecha_Solicitud" class="validate" required>
+                    <label for="fecha_Solicitud">Fecha Solicitud</label>
+                  </div>
+                <div class="input-field col-s12"> <!-- [(ngModel)] doble enlace de datos-->
+                    <input type="text" id= numero_Contratacion name="numero_Contratacion" #name="ngModel" [(ngModel)]="solicitudServ.selectedSolicitud.numero_Contratacion" class="validate" required>
+                    <label for="numero_Contratacion">Número Contratación</label>
+                  </div>
+                 
+                <div class="input-field col-s12">
+                  <input type="number" id=monto_Solicitud name="monto_Solicitud" #name="ngModel" [(ngModel)]="solicitudServ.selectedSolicitud.monto_Solicitud" class="validate" required>
+                  <label for="monto_Solicitud">Monto Solicitado</label>
+                </div>
+                                        
+                <div class="card-action">
+                  <div class="input-field col-s12">
+                    <button class="btn right" (click)="AddSolicitud(solicitudForm)">PROCESAR</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <button class="btn"  style="margin-left: 10px;" (click)="limpiarForm(solicitudForm)">Limpiar</button>
+      </div>
+      <div class="col s7">
+        <p class="center white-text text-darken-5 card-panel blue lighten-30">SOLICITUDES PROCESADAS 2504</p>
+        <table class="striped highlight black-text" class="responsive-table">
+            <thead>
+             <!-- <th>Código Presupuesto</th> -->
+             <th>Número Solicitud</th>
+             <th>Fecha Solicitud</th>
+             <th>Número de Contratación</th>
+             <th>Monto Ejecutado</th>
+                       
+          </thead>
+          <tbody>
+            <tr *ngFor= "let solic of solicitudServ.solicitudArray">  <!-- Bucle for-- muestro los Presupuestos de todos esos funcionarios; Por cada recorrido  voy a obtener un solo presupuesto -->
+             <!-- <td>{{ partida2504.codigo_Asignacion }}</td> -->
+              <td>{{ solic.numero_Solicitud }}</td> 
+              <td>{{ solic.fecha_Solicitud | date:'dd/MM/yyyy'}}</td>
+              <td>{{ solic.numero_Contratacion }}</td>
+              <td>{{ solic.monto_Solicitud | currency: '¢' }}</td>
+              <td>
+                <a (click)="editSolicitud(solic)" class="btn btn-secondary btn-small">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteSolicitud(solic._id, solicitudForm)" class="btn btn-danger btn-small">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
