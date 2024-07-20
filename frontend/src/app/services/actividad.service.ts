@@ -10,7 +10,7 @@ export class ActividadService {
   selectedActividad: Actividad;
   actividadArray: Actividad[];
 
-  readonly URL_API = 'http://localhost:3000/presupuesto2504/actividad';
+  readonly URL_API = 'http://localhost:3000/smartbudget/actividad';
 
   constructor(private http: HttpClient) {
     this.selectedActividad= new Actividad();

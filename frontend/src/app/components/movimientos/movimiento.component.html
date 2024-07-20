@@ -6,61 +6,61 @@
           <!-- Formulario construido para ejecutarse con un evento, un metodo llamado addFuncionario y recibe funcionarioForm por parametros  -->
           <p class="center white-text text-darken-5 card-panel teal lighten-1">MOVIMIENTOS</p>
           <br>
-          <form #registroForm="ngForm" (ngSubmit)="AddRegistro(registroForm)">
+          <form #movimientoForm="ngForm" (ngSubmit)="AddMovimiento(movimientoForm)">
             <!--El metodo se le da todo el contenido del form; cuando se da el evento submit envio todo el formulario a la funcion addpresupuesto   -->
-            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]=" registroServ.selectedRegistro._id">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]=" movimientoServ.selectedMovimiento._id">
             <div class="row">
               <!-- <div class="input-field col-s12">
                 <input type="number" id=transacciones_id name="transacciones_id" #name="ngModel"
-                  [(ngModel)]="registroServ.selectedRegistro.transacciones_id" class="validate" required>
+                  [(ngModel)]="movimientoServ.selectedMovimiento.transacciones_id" class="validate" required>
                 <label for="transacciones_id">ID TRANSACCIÓN</label>
               </div> -->
 
               <div class="input-field col-s12">
                 <input type="number" id=cuenta_id name="cuenta_id" #name="ngModel"
-                  [(ngModel)]="registroServ.selectedRegistro.cuenta_id" class="validate" required>
+                  [(ngModel)]="movimientoServ.selectedMovimiento.cuenta_id" class="validate" required>
                 <label for="cuenta_id">ID CUENTA</label>
               </div>
 
               <div class="input-field col-s12">
                 <!-- [(ngModel)] doble enlace de datos-->
                 <input type="number" id=tipo_transaccion name="tipo_transaccion" #name="ngModel"
-                  [(ngModel)]="registroServ.selectedRegistro.tipo_transaccion" class="validate" required>
+                  [(ngModel)]="movimientoServ.selectedMovimiento.tipo_transaccion" class="validate" required>
                 <label for="tipo_transaccion">TIPO TRANSACCIÓN</label>
               </div>
               <div class="input-field col-s12">
                 <!-- [(ngModel)] doble enlace de datos-->
                 <input type="number" id=descripcion name="descripcion" #name="ngModel"
-                  [(ngModel)]="registroServ.selectedRegistro.descripcion" class="validate" required>
+                  [(ngModel)]="movimientoServ.selectedMovimiento.descripcion" class="validate" required>
                 <label for="descripcion">DESCRIPCIÓN</label>
               </div>
 
               <div class="input-field col-s12">
                 <!-- [(ngModel)] doble enlace de datos-->
                 <input type="number" id=monto name="monto" #name="ngModel"
-                  [(ngModel)]="registroServ.selectedRegistro.monto" class="validate" required>
+                  [(ngModel)]="movimientoServ.selectedMovimiento.monto" class="validate" required>
                 <label for="monto">MONTO</label>
               </div>
 
               <div class="input-field col-s12">
                 <!-- [(ngModel)] doble enlace de datos-->
-                <input type="number" id=fecha_transaccion name="fecha_transaccion" #name="ngModel"
-                  [(ngModel)]="registroServ.selectedRegistro.fecha_transaccion" class="validate" required>
-                <label for="fecha_transaccion">FECHA DE TRANSACCIÓN</label>
+                <input type="number" id=fecha name="fecha" #name="ngModel"
+                  [(ngModel)]="movimientoServ.selectedMovimiento.fecha" class="validate" required>
+                <label for="fecha">FECHA DE TRANSACCIÓN</label>
               </div>
               <div class="input-field col-s12">
-                <input type="text" id=observaciones name="observaciones" #name="ngModel"
-                  [(ngModel)]="registroServ.selectedRegistro.observaciones" class="validate" required>
-                <label for="observaciones">CATEGORIAS</label>
+                <input type="text" id=categorias name="categorias" #name="ngModel"
+                  [(ngModel)]="movimientoServ.selectedMovimiento.categorias" class="validate" required>
+                <label for="categorias">CATEGORIAS</label>
               </div>
             </div>
           </form>
 
           <div class="card-content">
             <div class="input-field col-s12">
-              <button class="btn left" style="margin-left: -30px;" (click)="AddRegistro(registroForm)">AGREGAR TRANSACCIÓN</button>
+              <button class="btn left" style="margin-left: -30px;" (click)="AddMovimiento(movimientoForm)">AGREGAR TRANSACCIÓN</button>
             </div>
-            <!-- <button class="btn left" style="margin-left: 20px;" (click)="limpiarForm(registroForm)">Limpiar</button> -->
+            <!-- <button class="btn left" style="margin-left: 20px;" (click)="limpiarForm(movimientoForm)">Limpiar</button> -->
           </div>
 
         </div>
@@ -89,7 +89,7 @@
           <th>CATEGORIAS</th>
         </thead>
         <tbody>
-          <tr *ngFor="let regis of registroServ.registroArray">
+          <tr *ngFor="let regis of movimientoServ">
             <!-- Bucle for-- muestro los Presupuestos de todos esos funcionarios; Por cada recorrido  voy a obtener un solo presupuesto -->
             <!-- <td>{{ partida2504.codigo_Asignacion }}</td> -->
             <!-- <td>{{ regis.transacciones_id }}</td> -->
@@ -97,13 +97,13 @@
             <td>{{ regis.tipo_transaccion }}</td>
             <td>{{ regis.descripcion }}</td>
             <td>{{ regis.monto }}</td>
-            <td>{{ regis.fecha_transaccion }}</td>
-            <td>{{ regis.observaciones }}</td>
+            <td>{{ regis.fecha }}</td>
+            <td>{{ regis.categorias }}</td>
             <td>
-              <a (click)="editRegistro(regis)" class="btn btn-secondary btn-small">
+              <a (click)="editMovimiento(regis)" class="btn btn-secondary btn-small">
                 <i class="material-icons">edit</i>
               </a>
-              <a (click)="deleteRegistro(regis._id, registroForm)" class="btn btn-danger btn-small">
+              <a (click)="deleteMovimiento(regis._id, movimientoForm)" class="btn btn-danger btn-small">
                 <i class="material-icons">delete</i>
               </a>
             </td>

@@ -7,7 +7,7 @@ import { ActividadComponent } from './components/actividad/actividad.component';
 import { DepartamentocompComponent } from './components/departamentocomp/departamentocomp.component';
 import { LoginComponent } from './components/login/login.component';
 import { SolicitudcompComponent } from './components/solicitudcomp/solicitudcomp.component';
-import { RegistrocompComponent } from './components/registrocomp/registrocomp.component';
+import { MovimientoComponent } from './components/movimientos/movimiento.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { Component } from '@angular/core';
@@ -28,7 +28,7 @@ const APP_ROUTES: Routes = [
     {path:'actividad', component: ActividadComponent},
     {path:'departamento', component: DepartamentocompComponent},
     {path:'solicitud', component: SolicitudcompComponent},
-    {path:'registro', component: RegistrocompComponent},
+    {path:'movimiento', component: MovimientoComponent},
     {path:'signin', component:AuthComponent},
     {path:'signup', component: SignupComponent},
     {path:'funcionarios', component: FuncionariosComponent},

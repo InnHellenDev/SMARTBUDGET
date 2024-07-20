@@ -2,7 +2,7 @@
 //Configurar base de datos para conectarse con Mongo
 //Se debe instalar mongoose como dependencia ya que el express necesita el modulo para conectarse y al ademas tambien sirve para modelar la bd
 //const mongoose = require('mongoose');//PARA DECIERLE A EXPRESS QUE SE CONECTE A MONGODB NECESITO MONGOOSE
-//const URI = 'mongodb://localhost/DB_Presupuesto2504';//URI O URL LE DIGO DONDE ESTA MI BASE DE DATOS URI ES LA CONEXION
+//const URI = 'mongodb://localhost/DB_SMARTBUDGET';//URI O URL LE DIGO DONDE ESTA MI BASE DE DATOS URI ES LA CONEXION
 import mongoose from "mongoose";
 import config from "./config";
 

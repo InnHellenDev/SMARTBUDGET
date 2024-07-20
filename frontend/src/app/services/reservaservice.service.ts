@@ -11,7 +11,7 @@ export class ReservaserviceService {
   selectedReserva: Reservamodel;
   ReservArray: Reservamodel[];
 
-  readonly URL_API ='http://localhost:3000/presupuesto2504/reservas';
+  readonly URL_API ='http://localhost:3000/smartbudget/reservas';
 
   constructor(private http: HttpClient) {
     this.selectedReserva= new Reservamodel();

@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     console.log(localStorage);
       // Navegar a la página de presupuesto anual
       //this._router.navigate(["/DESARROLLO/presupuesto-2504/frontend/src/app/app.component.html"], { relativeTo: this.route });
-      this._router.navigate(["/registro"], { relativeTo: this.route }).then(() => {
+      this._router.navigate(["/movimiento"], { relativeTo: this.route }).then(() => {
         window.location.reload();
       });
 

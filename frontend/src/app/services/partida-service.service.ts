@@ -10,7 +10,7 @@ export class PartidaServiceService {
   selectedPartidas: PartidasModels; //Esto me permitira seleccionar una partida
   PartidasArray: PartidasModels[];//Arreglo de partidas para almacenarlos en el array
  
-  readonly URL_API ='http://localhost:3000/presupuesto2504/partidas_2504'; //readonly para almacenar mi propiedad
+  readonly URL_API ='http://localhost:3000/smartbudget/partidas_2504'; //readonly para almacenar mi propiedad
     
   constructor(private http: HttpClient) { 
     this.selectedPartidas = new PartidasModels(); 

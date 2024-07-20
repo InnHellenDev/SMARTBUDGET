@@ -16,7 +16,7 @@ import { ActividadComponent } from './components/actividad/actividad.component';
 import { ReservacompComponent } from './components/reservacomp/reservacomp.component';
 import { DepartamentocompComponent } from './components/departamentocomp/departamentocomp.component';
 import { SolicitudcompComponent } from './components/solicitudcomp/solicitudcomp.component';
-import { RegistrocompComponent } from './components/registrocomp/registrocomp.component';
+import { MovimientoComponent } from './components/movimientos/movimiento.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import {MatMenuModule} from '@angular/material/menu';
@@ -40,7 +40,7 @@ import { EducacionFinancieraComponent } from './components/educacion-financiera/
     ReservacompComponent,
     DepartamentocompComponent,
     SolicitudcompComponent,
-    RegistrocompComponent,
+    MovimientoComponent,
     HomeComponent,
     LoginComponent,
     AuthComponent,

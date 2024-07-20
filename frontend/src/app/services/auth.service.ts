@@ -10,7 +10,7 @@ export class AuthService {
   selectedAuth: Auth;
   AuthArray: Auth[];
 
-  readonly URL_API = 'http://localhost:3000/presupuesto2504/auth/signin?';
+  readonly URL_API = 'http://localhost:3000/smartbudget/auth/signin?';
 
   constructor(private http: HttpClient) { 
      this.selectedAuth= new Auth();

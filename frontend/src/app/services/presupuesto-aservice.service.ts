@@ -10,7 +10,7 @@ export class PresupuestoAserviceService {
   selectedPresupuestoAnual: Presupuesto; //Esto me permitira seleccionar un presupuesto
   PresupuestoArray: Presupuesto[];//Arreglo de presupuesto para almacenarlos en el array
 
-  readonly URL_API ='http://localhost:3000/presupuesto2504/presupuesto_Anual'; //readonly para almacenar mi propiedad
+  readonly URL_API ='http://localhost:3000/smartbudget/presupuesto_Anual'; //readonly para almacenar mi propiedad
   
 
   constructor(private http: HttpClient) {

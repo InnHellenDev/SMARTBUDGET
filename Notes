@@ -1,2 +1,4 @@
-   //PARA EJECUTAR EL CLIENTE : [root@59a625e7af5a frontend]# ng serve 
-   //PARA EJECUTAR EL SERVER: [root@59a625e7af5a presupuesto-2504]# npm start
+   //PARA EJECUTAR EL CLIENTE :
+   Darle primero npm install.
+   [root@59a625e7af5a frontend]# ng serve 
+   //PARA EJECUTAR EL SERVER: [root@59a625e7af5a presupuesto-2504]# npm starts

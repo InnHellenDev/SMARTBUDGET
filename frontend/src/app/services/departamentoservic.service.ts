@@ -10,7 +10,7 @@ export class DepartamentoservicService {
   selectedDepart: Departamentomodel;
   DepartArray: Departamentomodel[];
 
-  readonly URL_API = 'http://localhost:3000/presupuesto2504/departamento';
+  readonly URL_API = 'http://localhost:3000/smartbudget/departamento';
 
   constructor(private http: HttpClient) {
     this.selectedDepart= new Departamentomodel();

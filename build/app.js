@@ -33,20 +33,20 @@ app.use(express.json()); //Configuracon del servidor para que entienda formato j
 //LA VARIABLE O CONSTANTE REQ.BODY ES DONDE VA A VENIR LA INFORMACION DEL NAVEGADOR-FRONTEND
 // Rutas del servidor = Routes
 
-app.use('/presupuesto2504/presupuesto_Anual', require('./routes/presupuesto_Anual.routes')); //USE LO QUE SE REQUIRE DE LA CARPETA ROUTES
+app.use('/smartbudget/presupuesto_Anual', require('./routes/presupuesto_Anual.routes')); //USE LO QUE SE REQUIRE DE LA CARPETA ROUTES
 
-app.use('/presupuesto2504/funcionarios_2504', require('./routes/funcionarios.routes'));
-app.use('/presupuesto2504/partidas_2504', require('./routes/partidas_2504.routes'));
-app.use('/presupuesto2504/actividad', require('./routes/actividad.routes'));
-app.use('/presupuesto2504/departamento', require('./routes/departamento.routes'));
-app.use('/presupuesto2504/reservas', require('./routes/reservas.routes'));
-app.use('/presupuesto2504/solicitud', require('./routes/solicitud.routes'));
-app.use('/presupuesto2504/registro', require('./routes/registro.routes')); //app.use('/presupuesto2504/users' , require('./routes/user.routes'));
-//app.use("/presupuesto2504/users", usersRoutes);
-//app.use("/presupuesto2504/auth", authRoutes);
+app.use('/smartbudget/funcionarios_2504', require('./routes/funcionarios.routes'));
+app.use('/smartbudget/partidas_2504', require('./routes/partidas_2504.routes'));
+app.use('/smartbudget/actividad', require('./routes/actividad.routes'));
+app.use('/smartbudget/departamento', require('./routes/departamento.routes'));
+app.use('/smartbudget/reservas', require('./routes/reservas.routes'));
+app.use('/smartbudget/solicitud', require('./routes/solicitud.routes'));
+app.use('/smartbudget/movimiento', require('./routes/movimiento.routes')); //app.use('/smartbudget/users' , require('./routes/user.routes'));
+//app.use("/smartbudget/users", usersRoutes);
+//app.use("/smartbudget/auth", authRoutes);
 // Routes DE LOGUIN
-//app.use('/presupuesto2504/products', require('./routes/products.routes'));
-//app.use("/presupuesto2504/users", usersRoutes);
-//app.use("/presupuesto2504/auth", authRoutes);
+//app.use('/smartbudget/products', require('./routes/products.routes'));
+//app.use("/smartbudget/users", usersRoutes);
+//app.use("/smartbudget/auth", authRoutes);
 
 module.exports = app;

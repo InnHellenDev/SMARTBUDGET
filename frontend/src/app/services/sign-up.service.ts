@@ -11,7 +11,7 @@ export class SignUpService {
   selectedSignUp: SignUp;
   SignUpArray: SignUp[];
 
-  readonly URL_API ='http://localhost:3000/presupuesto2504/auth/signup?';
+  readonly URL_API ='http://localhost:3000/smartbudget/auth/signup?';
   
   constructor(private http: HttpClient) { }
   getSignUp(){

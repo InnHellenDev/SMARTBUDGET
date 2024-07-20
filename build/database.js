@@ -6,7 +6,7 @@
 var mongoose = require('mongoose'); //PARA DECIERLE A EXPRESS QUE SE CONECTE A MONGODB NECESITO MONGOOSE
 
 
-var URI = 'mongodb://localhost/DB_Presupuesto2504'; //URI O URL LE DIGO DONDE ESTA MI BASE DE DATOS URI ES LA CONEXION
+var URI = 'mongodb://localhost/DB_SMARTBUDGET'; //URI O URL LE DIGO DONDE ESTA MI BASE DE DATOS URI ES LA CONEXION
 
 mongoose.connect(URI, {
   useNewUrlParser: true,

@@ -4,15 +4,15 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var registromodel = require('../models/registro');
+var movimientomodel = require('../models/movimiento');
 
-var registro_controller = {};
+var movimiento_controller = {};
 
-registro_controller.getAll_Registros = /*#__PURE__*/function () {
+movimiento_controller.getAll_Movimientos = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator(function* (req, res, next) {
-    var regis = yield registromodel.find(); //Busca todo el presupuesto anula en la DB
+    var movim = yield movimientomodel.find(); //Busca todo el presupuesto anula en la DB
 
-    res.json(regis);
+    res.json(movim);
   });
 
   return function (_x, _x2, _x3) {
@@ -20,19 +20,19 @@ registro_controller.getAll_Registros = /*#__PURE__*/function () {
   };
 }();
 
-registro_controller.createRegistro = /*#__PURE__*/function () {
+movimiento_controller.createMovimiento = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator(function* (req, res, next) {
     //next -- ejecuta el siguiente midelware que se encuentre// Los datos me los envía a travex de una propiedad llamada body
-    var regist = new registromodel({
-      numero_Solicitud: req.body.numero_Solicitud,
-      orden_Compra: req.body.orden_Compra,
-      codigo_Actividad: req.body.codigo_Actividad,
-      codigo_Partida: req.body.codigo_Partida,
-      codigo_Reserva: req.body.codigo_Reserva,
+    var movim = new movimientomodel({
+      idCuenta: req.body.idCuenta,
+      tipoTransaccion: req.body.tipoTransaccion,
+      descripcion: req.body.descripcion,
       monto: req.body.monto,
-      observaciones: req.body.observaciones
+      fecha: req.body.fecha,
+      monto: req.body.monto,
+      categorias: req.body.categorias
     });
-    yield regist.save();
+    yield movim.save();
     res.json({
       'status': 'Solicitud Guardada'
     });
@@ -43,14 +43,14 @@ registro_controller.createRegistro = /*#__PURE__*/function () {
   };
 }();
 
-registro_controller.getRegistro = /*#__PURE__*/function () {
+movimiento_controller.getMovimiento = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator(function* (req, res, next) {
     //OJO VER SI FUNCIONA SI NO CAMBIAR codigo_Asignacion por id
     var {
       id
     } = req.params;
-    var regist = yield registromodel.findById(id);
-    res.json(regist);
+    var movimient = yield movimientomodel.findById(id);
+    res.json(movimient);
   });
 
   return function (_x7, _x8, _x9) {
@@ -58,22 +58,22 @@ registro_controller.getRegistro = /*#__PURE__*/function () {
   };
 }();
 
-registro_controller.editRegistro = /*#__PURE__*/function () {
+movimiento_controller.editMovimiento= /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator(function* (req, res, next) {
     var {
       id
     } = req.params;
-    var regist = {
-      numero_Solicitud: req.body.numero_Solicitud,
-      orden_Compra: req.body.orden_Compra,
-      codigo_Actividad: req.body.codigo_Actividad,
-      codigo_Partida: req.body.codigo_Partida,
-      codigo_Reserva: req.body.codigo_Reserva,
+    var movim = {
+      idCuenta: req.body.idCuenta,
+      tipoTransaccion: req.body.tipoTransaccion,
+      descripcion: req.body.descripcion,
       monto: req.body.monto,
-      observaciones: req.body.observaciones
+      fecha: req.body.fecha,
+      monto: req.body.monto,
+      categorias: req.body.categorias
     };
-    yield registromodel.findByIdAndUpdate(id, {
-      $set: regist
+    yield movimientomodel.findByIdAndUpdate(id, {
+      $set: movim
     }, {
       new: true
     });
@@ -87,9 +87,9 @@ registro_controller.editRegistro = /*#__PURE__*/function () {
   };
 }();
 
-registro_controller.deleteRegistro = /*#__PURE__*/function () {
+movimiento_controller.deleteMovimiento = /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator(function* (req, res, next) {
-    yield registromodel.findByIdAndRemove(req.params.id);
+    yield movimientomodel.findByIdAndRemove(req.params.id);
     res.json({
       'Status': 'Registro Eliminado'
     });
@@ -100,4 +100,4 @@ registro_controller.deleteRegistro = /*#__PURE__*/function () {
   };
 }();
 
-module.exports = registro_controller; //Para exportar mi objeto y asi agregar multiples metodos
+module.exports = movimiento_controller; //Para exportar mi objeto y asi agregar multiples metodos

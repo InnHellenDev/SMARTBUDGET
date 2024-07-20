@@ -10,7 +10,7 @@ export class SolicitudserviceService {
   selectedSolicitud: Solicitudmodel;
   solicitudArray: Solicitudmodel[];
 
-  readonly URL_API ='http://localhost:3000/presupuesto2504/solicitud';
+  readonly URL_API ='http://localhost:3000/smartbudget/solicitud';
 
   constructor(private http: HttpClient) { 
     this.selectedSolicitud= new Solicitudmodel();
