@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http'; // Este modulo me permite importar funcionalidad desde angular y así comunicar mi app al backend
+import { HttpClient } from '@angular/common/http'; // Este modulo me permite importar funcionalidad desde angular y así comunicar mi app al backend
 import { Presupuesto } from './../models/presupuesto';
 
 @Injectable({

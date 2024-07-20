@@ -4,7 +4,7 @@ import{AuthService} from '../../services/auth.service';
 import {Auth} from '../../models/auth';
 
 import {ActivatedRoute} from '@angular/router';
-import {HttpHeaderResponse,HttpErrorResponse} from '@angular/common/http';
+import { HttpHeaderResponse, HttpErrorResponse } from '@angular/common/http';
 import { observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError as observableThrowError } from 'rxjs';

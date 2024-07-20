@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 //Routes
 import {APP_ROUTING} from './app.routes';
@@ -30,37 +30,29 @@ import { EducacionFinancieraComponent } from './components/educacion-financiera/
 //import { NgxChartsModule } from '@swimlane/ngx-charts'; // Módulo de gráficos
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    FuncionariosComponent,
-    PresupuestoAnualComponent,
-    PartidasComponent,
-    ActividadComponent,
-    ReservacompComponent,
-    DepartamentocompComponent,
-    SolicitudcompComponent,
-    MovimientoComponent,
-    HomeComponent,
-    LoginComponent,
-    AuthComponent,
-    SignupComponent,
-    SigninComponent,
-    InformesComponent,
-    EducacionFinancieraComponent,
-    //NgxChartsModule
-          
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    MatMenuModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    APP_ROUTING
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        FuncionariosComponent,
+        PresupuestoAnualComponent,
+        PartidasComponent,
+        ActividadComponent,
+        ReservacompComponent,
+        DepartamentocompComponent,
+        SolicitudcompComponent,
+        MovimientoComponent,
+        HomeComponent,
+        LoginComponent,
+        AuthComponent,
+        SignupComponent,
+        SigninComponent,
+        InformesComponent,
+        EducacionFinancieraComponent,
+        //NgxChartsModule
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        MatMenuModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        APP_ROUTING], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
